@@ -1,0 +1,23 @@
+<section>
+    <div class="list-container" >
+        <form class="form" [formGroup]="detailForm">
+        <div *ngIf="collection$ | async as collection" class="col-md-2" >
+            <ng-container *ngFor="let child of collection.children" >
+                <clr-checkbox-container>
+                    <clr-checkbox-wrapper>
+                        <input type="checkbox" clrCheckbox
+                               formControlName="brands"
+                               (change)="onCheckboxChange(child, $event)"
+                         >
+                        <label>{{ child.name }}</label>
+                    </clr-checkbox-wrapper>
+                </clr-checkbox-container>
+            </ng-container>
+        </div>
+        </form>
+    </div>
+</section>
+
+
+
+<pre>{{ product$ | async | json }}</pre>
